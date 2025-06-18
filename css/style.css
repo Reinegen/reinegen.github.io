@@ -1,0 +1,512 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+/* Header Container */
+.main-header {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.logo img {
+  height: 40px;        /* Controls size (adjust if needed) */
+  width: 40px;
+  border-radius: 50%;  /* Makes it fully round */
+  object-fit: cover;   /* Ensures it fills the circle */
+  vertical-align: middle;
+}
+
+
+/* Navigation */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cta-nav {
+  background-color: #007BFF;
+  padding: 8px 15px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-nav:hover {
+  background-color: #0056b3;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .navbar .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Hero Section Styling */
+#hero {
+  position: relative;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('../assets/images/old_furniture.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #22b088;
+
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.cta-btn {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+}
+
+
+#services {
+  padding: 40px 0;
+  background-color: white;
+  text-align: center;
+}
+
+.service {
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  width: 250px;
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#contact form input,
+#contact form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.booking-section {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.booking-section .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.booking-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.booking-form input,
+.booking-form textarea,
+.booking-form select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.booking-form textarea {
+  min-height: 100px;
+}
+
+.booking-form button.cta-btn {
+  padding: 15px;
+  background-color: #007BFF;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form button.cta-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* Services Section */
+#services {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #555;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.service-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px;
+  width: 300px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+.service-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service-card ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.service-card .cta-btn {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.service-card .cta-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+#pricing {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.pricing-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 280px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.pricing-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+.pricing-card p {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.pricing-card ul {
+  list-style: disc;
+  padding-left: 20px;
+  color: #555;
+  margin-bottom: 0;
+}
+
+.pricing-note {
+  font-size: 0.9rem;
+  color: #777;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-style: italic;
+}
+
+#pricing .cta-btn {
+  padding: 12px 30px;
+  font-weight: 700;
+}
+
+
+
+
+
+.contact-section {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.toggle-btn {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+.contact-section {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-section .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-btn {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #0056b3;
+}
+
+.contact-form {
+  display: none ; /* Hidden by default */
+  text-align: left;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form.visible {
+  display: flex; /* Show form when active */
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.contact-form button.cta-btn {
+  width: 100%;
+  padding: 15px;
+  font-weight: 700;
+}
+
+#contactForm {
+  display: none !important;
+}
+
+
+#contactForm.visible {
+  display: flex !important;
+  flex-direction: column;
+}
+
+
+.agent-section {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.agent-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.agent-photo {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
