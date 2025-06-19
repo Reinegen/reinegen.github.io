@@ -240,11 +240,13 @@ body {
 }
 
 .whatsapp-icon {
-  width: 20px;
-  height: 20px;
+  height: 1.2em; /* roughly same height as emoji */
+  width: auto;   /* maintain aspect ratio */
   vertical-align: middle;
   margin-right: 6px;
-  }
+  display: inline-block;
+}
+
 
 
 
