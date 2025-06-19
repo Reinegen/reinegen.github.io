@@ -100,7 +100,7 @@ body {
 #hero {
   position: relative;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('../assets/images/old_furniture.jpg') no-repeat center center;
+              url('../assets/images/hero2.jpg') no-repeat center center;
   background-size: cover;
   color: white;
   padding: 80px 20px;
@@ -185,12 +185,79 @@ body {
   border-radius: 5px;
 }
 
-footer {
-  background-color: #333;
-  color: white;
+
+
+
+
+
+
+
+.site-footer {
+  background-color: #222; /* dark gray for less harshness than black */
+  color: #ddd; /* light gray for text */
+  padding: 40px 20px;
   text-align: center;
-  padding: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 400;
 }
+
+.footer-content p {
+  margin: 6px 0;
+}
+
+.footer-link {
+  color: #6cb2ff; /* soft blue */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  color: #3a8dde; /* darker blue on hover */
+  text-decoration: underline;
+}
+
+.slogan {
+  font-style: italic;
+  margin: 20px 0 10px;
+  color: #a0a0a0;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.85rem;
+    padding: 30px 15px;
+  }
+}
+
+.copyright {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .booking-section {
   background-color: #fff;
