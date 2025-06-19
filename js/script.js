@@ -2,7 +2,7 @@
 const bookingForm = document.querySelector('.booking-form');
 
 bookingForm?.addEventListener('submit', function () {
-  alert("Thank you! Your booking has been sent successfully.");
+  alert("Information is being processed. Please wait for confirmation — this may take 15–30 seconds. Do not close or refresh the page.");
 });
 
 
