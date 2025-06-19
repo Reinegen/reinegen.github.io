@@ -265,31 +265,30 @@
     <h2>Unsere Dienstleistung buchen</h2>
     <p>Füllen Sie dieses kurze Formular aus – ganz unverbindlich. Wir melden uns mit der passenden Lösung.</p>
 
-    <form action="https://formsubmit.co/30097a5eb75ccb3671c2ece0ee6f9e2d" method="POST" class="booking-form">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://removereinigen.com/thank-you.html">
-      <input type="hidden" name="_subject" value="Neue Buchungsanfrage von Removereinigen">
-      <input type="hidden" name="_template" value="table">
+    <form action="https://formspree.io/f/myzjponn" method="POST" class="booking-form">
+      <input type="hidden" name="_redirect" value="https://removereinigen.com/thank-you.html">
+
+      
 
       <label for="fullName">Vollständiger Name *</label>
-      <input type="text" id="fullName" name="Full Name" placeholder="Ihr vollständiger Name" required>
-
-      <label for="email">E-Mail *</label>
-      <input type="email" id="email" name="Email" placeholder="Ihre E-Mail" required>
-
-      <label for="phone">Telefonnummer</label>
-      <input type="tel" id="phone" name="Phone" placeholder="Ihre Telefonnummer">
-
-      <label for="town">Ort *</label>
-      <input type="text" id="town" name="Town" placeholder="Ort oder Stadt" required>
-
-      <label for="address">Adresse *</label>
-      <input type="text" id="address" name="Address" placeholder="Strasse & Hausnummer" required>
-
+      <input type="text" id="fullName" name="fullName" placeholder="Ihr vollständiger Name" required>
+      <!-- Honeypot anti-spam field -->
       <input type="text" name="honeypot" style="display:none" />
 
+      <label for="email">E-Mail *</label>
+      <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
+
+      <label for="phone">Telefonnummer</label>
+      <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer">
+
+      <label for="town">Ort *</label>
+      <input type="text" id="town" name="town" placeholder="Ort oder Stadt" required>
+
+      <label for="address">Adresse *</label>
+      <input type="text" id="address" name="address" placeholder="Strasse & Hausnummer" required>
+
       <label for="serviceType">Dienstleistung</label>
-      <select id="serviceType" name="Service Type">
+      <select id="serviceType" name="serviceType">
         <option value="" disabled selected>Dienstleistung auswählen</option>
         <option value="Furniture Dismantling & Removal">Möbelabbau & Entsorgung</option>
         <option value="Cleaning Services">Reinigungsdienste</option>
@@ -298,7 +297,7 @@
       </select>
 
       <label for="additionalDetails">Zusätzliche Angaben</label>
-      <textarea id="additionalDetails" name="Additional Details" placeholder="Spezielle Wünsche oder Infos"></textarea>
+      <textarea id="additionalDetails" name="additionalDetails" placeholder="Spezielle Wünsche oder Infos"></textarea>
 
       <button type="submit" class="cta-btn">Buchung absenden</button>
     </form>
