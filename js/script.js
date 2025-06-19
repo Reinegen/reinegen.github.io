@@ -1,11 +1,3 @@
-// Optional: Detect if form is submitted and show a message
-const bookingForm = document.querySelector('.booking-form');
-
-bookingForm?.addEventListener('submit', function () {
-  alert("Information is being processed. Please wait for confirmation — this may take 15–30 seconds. Do not close or refresh the page.");
-});
-
-
 document.getElementById('toggleContactForm').addEventListener('click', () => {
   const form = document.getElementById('contactForm');
   form.classList.toggle('visible');
@@ -17,3 +9,57 @@ document.getElementById('toggleContactForm').addEventListener('click', () => {
     navLinks.classList.toggle('show');
   }
 
+// anti bot
+
+   document.getElementById('contactForm').onsubmit = function(event) {
+    var honeypot = document.querySelector('input[name="honeypot"]').value;
+    if (honeypot) {
+      event.preventDefault();  // Stop form submission if honeypot is filled
+      alert("Spam detected!");
+    } else {
+      // Proceed with form submission
+      // Let FormSubmit handle it
+    }
+  };
+
+
+
+
+
+
+ // Get the form element
+  const bookingForm = document.querySelector('.booking-form');
+
+  // Add event listener for form submission
+  bookingForm?.addEventListener('submit', function(event) {
+    // First, check if the honeypot field is filled
+    const honeypot = document.querySelector('input[name="honeypot"]').value;
+    if (honeypot) {
+      // If the honeypot is filled, it's a bot
+      event.preventDefault(); // Prevent form submission
+      alert("Spam detected! Form submission is blocked.");
+      return;
+    }
+
+    // Validate required fields
+    const requiredFields = bookingForm.querySelectorAll('input[required], select[required], textarea[required]');
+    let isValid = true;
+
+    requiredFields.forEach(function(field) {
+      if (!field.value.trim()) {
+        isValid = false;
+        field.style.border = '2px solid red'; // Highlight the missing field
+      } else {
+        field.style.border = ''; // Remove highlight if filled
+      }
+    });
+
+    if (!isValid) {
+      event.preventDefault(); // Prevent form submission if fields are missing
+      alert("Please fill out all required fields.");
+      return; // Stop the submission here if there are missing fields
+    }
+
+    // Show confirmation message if everything is valid and honeypot is empty
+    alert("Information is being processed. Please wait for confirmation — this may take 15–30 seconds. Do not close or refresh the page.");
+  });
