@@ -240,7 +240,7 @@ body {
 }
 
 .whatsapp-icon {
-  height: 1.2em; /* roughly same height as emoji */
+  height: 1.4em; /* roughly same height as emoji */
   width: auto;   /* maintain aspect ratio */
   vertical-align: middle;
   margin-right: 6px;
@@ -630,10 +630,7 @@ body {
   text-decoration: underline;
 }
 
-/* WhatsApp-specific style */
-.whatsapp-link::before {
-  content: "📱";
-}
+
 
 /* Responsive: stack on mobile */
 @media (max-width: 600px) {
