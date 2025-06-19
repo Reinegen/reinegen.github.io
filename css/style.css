@@ -510,3 +510,74 @@ footer {
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+
+
+
+
+
+
+
+.values-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.values-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.value-list {
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.value-list li {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  text-align: left;
+}
+
+.value-list .icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.value-list h3 {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: #007BFF;
+}
+
+.value-list p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Responsive: Stack values on mobile */
+@media (max-width: 768px) {
+  .value-list {
+    grid-template-columns: 1fr;
+  }
+
+  .value-list li {
+    text-align: left;
+  }
+}
