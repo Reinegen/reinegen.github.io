@@ -9,56 +9,74 @@ document.getElementById('toggleContactForm').addEventListener('click', () => {
     navLinks.classList.toggle('show');
   }
 
-// anti bot
 
-   document.getElementById('contactForm').onsubmit = function(event) {
-    var honeypot = document.querySelector('input[name="honeypot"]').value;
-    if (honeypot) {
-      event.preventDefault();  // Stop form submission if honeypot is filled
-      alert("Spam detected!");
-    } else {
-      // Proceed with form submission
-      // Let FormSubmit handle it
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Helper to handle form submission
+  async function handleFormSubmission(form) {
+    // Check honeypot
+    const honeypot = form.querySelector('input[name="honeypot"]')?.value;
+    if (honeypot && honeypot.trim() !== "") {
+      alert("Spam erkannt! Formular wurde blockiert.");
+      return;
     }
-  };
 
+    // Validate required fields
+    const requiredFields = form.querySelectorAll('input[required], select[required], textarea[required]');
+    let isValid = true;
 
+    requiredFields.forEach(field => {
+      if (!field.value.trim()) {
+        isValid = false;
+        field.style.border = '2px solid red';
+      } else {
+        field.style.border = '';
+      }
+    });
 
+    if (!isValid) {
+      alert("Bitte füllen Sie alle Pflichtfelder aus.");
+      return;
+    }
 
+    // Prepare data and send via AJAX
+    const formData = new FormData(form);
+    const actionUrl = form.getAttribute('action') || 'https://formspree.io/f/myzjponn';
 
-// Get the form element
-const bookingForm = document.querySelector('.booking-form');
+    try {
+      const response = await fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-// Add event listener for form submission
-bookingForm?.addEventListener('submit', function(event) {
-  // First, check if the honeypot field is filled
-  const honeypot = document.querySelector('input[name="honeypot"]').value;
-  if (honeypot) {
-    // If the honeypot is filled, it's a bot
-    event.preventDefault(); // Prevent form submission
-    alert("Spam erkannt! Das Formular wurde blockiert.");
-    return;
+      if (response.ok) {
+        window.location.href = "https://removereinigen.com/thank-you.html";
+      } else {
+        alert("Fehler beim Senden. Bitte versuchen Sie es später erneut.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Ein technischer Fehler ist aufgetreten.");
+    }
   }
 
-  // Validate required fields
-  const requiredFields = bookingForm.querySelectorAll('input[required], select[required], textarea[required]');
-  let isValid = true;
-
-  requiredFields.forEach(function(field) {
-    if (!field.value.trim()) {
-      isValid = false;
-      field.style.border = '2px solid red'; // Highlight the missing field
-    } else {
-      field.style.border = ''; // Remove highlight if filled
-    }
-  });
-
-  if (!isValid) {
-    event.preventDefault(); // Prevent form submission if fields are missing
-    alert("Bitte füllen Sie alle Pflichtfelder aus.");
-    return; // Stop the submission here if there are missing fields
+  // Attach to both forms
+  const bookingForm = document.querySelector('.booking-form');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      handleFormSubmission(bookingForm);
+    });
   }
 
-  // Show confirmation message if everything is valid and honeypot is empty
-  alert("Ihre Angaben werden verarbeitet. Bitte warten Sie auf die Bestätigung — dies kann 15–30 Sekunden dauern. Bitte schliessen oder aktualisieren Sie die Seite nicht.");
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      handleFormSubmission(contactForm);
+    });
+  }
 });
